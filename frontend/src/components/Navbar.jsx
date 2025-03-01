@@ -8,8 +8,8 @@ const Navbar = () => {
   const handleClick = () => setClick(!click);
 
   return (
-    <nav className="relative bg-[#0D1321] shadow-lg w-full">
-      <div className="max-w-9xl mx-auto h-20 flex items-center justify-between px-6 lg:px-16  text-white text-4xl">
+    <nav className="fixed top-0 left-0 w-full bg-[#0D1321] shadow-lg z-50">
+      <div className="max-w-9xl mx-auto h-20 flex items-center justify-between px-6 lg:px-16 text-white text-4xl">
         
         {/*Logo container for the MedFlow Design*/}
         <div className="flex items-center">
@@ -22,7 +22,7 @@ const Navbar = () => {
           {["Home", "Services", "Doctors", "Contact"].map((item, index) => (
             <Link
               key={index}
-              to={`/${item.toLowerCase()}`}
+              to={item !== "Home" ? `/${item.toLowerCase()}` : '/'}
               className="relative transition duration-300 hover:text-blue-400 hover:underline"
             >
               {item}
